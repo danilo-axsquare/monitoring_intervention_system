@@ -24,10 +24,18 @@ The bash scripts collect two types of information/data: <br>
   * CPU type (e. g. Intel Xeon )
   * Disk information (e. g. xvda: 16.1GB)
   * Machine type (e. g. Virtual)
-  
+The name of the script that retrieve this information is : getInfo.sh
 2. **Health information**, this data describes the state of health of a host , these data frequently changes:
   * RAM used (e. g. 54% )
   * CPU used (e. g. 80% )
   * Use partitions and mount point (e. g. 54% / - 13% /boot )
   * Number of users connected (e. g. 3)
+The name of the script that retrieve this information is : getHealthStatus.sh
+To run this script periodically uses the `cron` daemon. To schedule the execution modify the crontab file by running the command `crontab -e`.
+Add the following cronjob (customize the path of the script):
+```
+*/5 * * * * /home/danilo/scripts/getHealthStatus.sh >/dev/null 2>&1
+0 * * * * /home/danilo/scripts/getInfo.sh >/dev/null 2>&1
+```
+
 
