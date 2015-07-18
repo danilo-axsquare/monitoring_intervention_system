@@ -44,7 +44,7 @@ Example of JSON send from `getInfo.sh` :
   "operation":"Information",
   "data":{
    "IP": "192.168.0.120'",
-   "Hostname":"xen10.movenda.com",
+   "Hostname":"xen10.danilo.com",
    "Memoria":"1024MB",
    "OS": "Red Hat Enterprise Linux 6" ,
    "CPU" : "Pentium(R) Dual-Core E5300",
@@ -66,3 +66,4 @@ Example of JSON send from `getHealthStatus.sh` :
   }
 }
 ```
+#Server
