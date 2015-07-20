@@ -67,3 +67,9 @@ Example of JSON send from `getHealthStatus.sh` :
 }
 ```
 #Server
+
+The server is the main point of the structure because it performs the task of storing the information of the host and responds to HTTP requests made from Android application. it is necessary that the server resides in the same intranet of the monitored hosts. It also needs to be accessible from the internet in order to receive the requests of the mobile application. I used Apache like web server and MySQL like database to store information. In the *server* you can find the following PHP file:
+  * *internal.php*: this file is the endpoint of the HTTP request made by hosts.
+  * *external.php*: this file is the endpoint of the HTTP request made by Android application.
+  * *daniDB.php*: It contain the functions to interact with database.
+  * *functions.php*: this file contain the functions used by internal.php and external.php.
