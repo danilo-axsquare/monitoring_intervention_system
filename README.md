@@ -87,7 +87,7 @@ This application displays information about hosts, and information about their s
 ##JSON Request/Response
 
 ###POST getHost
-This request is made by Android application, this JSON contain a field "IP". In this field you can specify a single IP address or the string "all" if you're requiring all information of all monitored host. The JSON response contain the information and health status of the host/hosts required.
+This request is made by Android application, this JSON contain a field "IP". In this field you can specify a single IP address or the string "all" if you're requiring all information of all monitored host. The JSON response contain the information and health status of the host/hosts required.<br>
 Example JSON request
 ```
 {
@@ -121,3 +121,6 @@ Example JSON response
    }
 ] }
 ```
+
+###POST requireAction
+
