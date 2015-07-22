@@ -73,8 +73,51 @@ The server is the main point of the structure because it performs the task of st
   * *external.php*: this file is the endpoint of the HTTP request made by Android application.
   * *daniDB.php*: It contain the functions to interact with database.
   * *functions.php*: this file contain the functions used by internal.php and external.php.
+
 The database folder contain a dump of the database used in this project. <br>
 This database contain only 3 tables:
 * Host: Store the hosts information.
 * Health: Store the hosts health status.
 * query_error: Help in troubleshooting with SQL query.
+
+#Android Application
+
+This application displays information about hosts, and information about their state of health. To work properly smartphone must be connected to the Internet. In addition, it must be set the public IP address (or URL) from which you can contact the server. For these settings there is a dedicated activity. This application contain a side menu (navigationDrawer) containing the list of monitored hosts.
+
+##JSON Request/Response
+
+###POST getHost
+This request is made by Android application, this JSON contain a field "IP". In this field you can specify a single IP address or the string "all" if you're requiring all information of all monitored host. The JSON response contain the information and health status of the host/hosts required.
+Example JSON request
+```
+{
+  "operation":”getHost”,
+  "ip":"192.168.1.1"
+}
+```
+
+Example JSON response
+```
+{
+  "status":200,
+  "typeHost":”single”
+  “result”:[
+   “ip”:”192.168.1.1”,
+   “status”:1,
+   “information”: {
+    "Hostname":"test.macchina.com",
+    "Memoria":"2048MB",
+    "OS": "Centos 6" ,
+    "CPU" : "Intel Pentium",
+    "Tipo macchina" : "virtuale",
+    "Disco": "1TB"
+   }
+   “health”:{
+    "IP": "192.168.1.1",
+    "Memoria": "50%" ,
+    "CPU" : "85%",
+    "Partizioni" : "68% /, 35% /boot",
+    "Utenti": "3"
+   }
+] }
+```
