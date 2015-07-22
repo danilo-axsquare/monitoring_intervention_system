@@ -66,6 +66,10 @@ Example of JSON send from `getHealthStatus.sh` :
   }
 }
 ```
+These scripts use some commands present in the *linux-util* package, for this reason execute this command in each Hosts:<br>
+```
+yum install linux-util
+```
 #Server
 
 The server is the main point of the structure because it performs the task of storing the information of the host and responds to HTTP requests made from Android application. it is necessary that the server resides in the same intranet of the monitored hosts. It also needs to be accessible from the internet in order to receive the requests of the mobile application. I used Apache like web server and MySQL like database to store information. In the *server* you can find the following PHP files:
@@ -124,3 +128,30 @@ Example JSON response
 
 ###POST requireAction
 
+This request is made by Android application to require the execution of an action on a specific host. Currently you can require the execution only two actions:
+* Host shutdown, set the field *command* to *off*
+* Kill all user sessions, set field *command* to *kill_sessions*
+In order to successfully perform these commands it is necessary that the server can connect via ssh to hosts without insert password. I know that this isn't a good idea for secure reason, but new ideas are accepted. :)
+Follow these steps to exchange keys between the user apache and hosts monitored:
+*
+
+Example JSON request:
+```
+{
+"operation":”action”,
+"ip":"192.168.1.1" ,
+“command”:"kill_sessions"
+}
+```
+Example JSON response:
+```
+{
+"status":200,
+"response":”Action executed”
+}
+```
+The field status is an identifier of the response, possible values:
+* 200: OK
+* 301: Action failed
+* 302: Command required not found
+To execute 
