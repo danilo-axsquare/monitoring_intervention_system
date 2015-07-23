@@ -1,0 +1,5 @@
+From getInfo.sh
+{"operation":"Information", "data":{ "IP": "1.2.3.4'", "Hostname": "test.macchina.com" , "Memoria":"2000MB", "OS": "Centos 6" , "CPU" : "Intel", "Tipo macchina" :  "Fisica'", "Disco": "1TB" } }
+
+From getHealthStatus.sh
+{"operation":"HealthStatus", "data":{ "IP": "1.2.3.4'", "Memoria": "50%" , "CPU" : "Intel", "Partizioni" :  "12334'", "Utenti": "1" } }

@@ -1,0 +1,2 @@
+*/5 * * * * /home/danilo/scripts/getHealthStatus.sh >/dev/null 2>&1
+0 * * * * /home/danilo/scripts/getInfo.sh >/dev/null 2>&1
