@@ -23,8 +23,10 @@ The bash scripts collect two types of information/data: <br>
   * Hostname (e. g. webserver.danilo.com)
   * CPU type (e. g. Intel Xeon )
   * Disk information (e. g. xvda: 16.1GB)
-  * Machine type (e. g. Virtual)<br>
-The name of the script that retrieve this information is : getInfo.sh<br>
+  * Machine type (e. g. Virtual)
+ 
+The name of the script that retrieve this information is : getInfo.sh
+
 2. **Health information**, this data describes the state of health of a host , these data frequently changes:
   * RAM used (e. g. 54% )
   * CPU used (e. g. 80% )
@@ -131,7 +133,7 @@ Example JSON response
 This request is made by Android application to require the execution of an action on a specific host. Currently you can require the execution only two actions:
 * Host shutdown, set the field *command* to *off*
 * Kill all user sessions, set field *command* to *kill_sessions*
-* 
+
 In order to successfully perform these commands it is necessary that the server can connect via ssh to hosts without insert password. I know that this isn't a good idea for secure reason, but new ideas are accepted. :)
 Follow these steps to exchange keys between the user apache and hosts monitored:
 
