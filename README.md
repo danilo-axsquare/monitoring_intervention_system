@@ -131,9 +131,23 @@ Example JSON response
 This request is made by Android application to require the execution of an action on a specific host. Currently you can require the execution only two actions:
 * Host shutdown, set the field *command* to *off*
 * Kill all user sessions, set field *command* to *kill_sessions*
+* 
 In order to successfully perform these commands it is necessary that the server can connect via ssh to hosts without insert password. I know that this isn't a good idea for secure reason, but new ideas are accepted. :)
 Follow these steps to exchange keys between the user apache and hosts monitored:
-*
+
+* Connect to server via command line and assign a shell to user *apache*. You have to modified the file */etc/passwd*
+* Switch to user apache with the command `su - apache`
+* `mkdir ~/.ssh`
+* `chmod 700 ~/.ssh`
+* Generate new public key with the command `/usr/bin/ssh-keygen -t rsa`. Now you have a new file named *id_rsa.pub*
+* `cd ~/.ssh`
+* Connect to host via command line. You have to execute all next steps to all hosts.
+* Modify the config file of ssh daemon /etc/ssh/sshd.conf, add or uncomment `permitRootLogin yes`. Restart the sshd service.
+* mkdir ~/.ssh
+* chmod 700 ~/.ssh
+* cd ~/.ssh
+* Create a new file called *authorized_key*s and past the content of the server's public key(file content *id_rsa.pub*, apache user).
+
 
 Example JSON request:
 ```
@@ -154,4 +168,3 @@ The field status is an identifier of the response, possible values:
 * 200: OK
 * 301: Action failed
 * 302: Command required not found
-To execute 
