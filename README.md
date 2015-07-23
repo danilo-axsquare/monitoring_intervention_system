@@ -5,7 +5,7 @@ Monitoring and intervention system
 This project contains the code to implement a monitoring system of servers of a corporate intranet. Using an Android application you can view the data collected and perform actions on the monitored hosts.
 
 ##Motivation
-I realized this project at the end of my university career. In addition, this project was carried out as there are no monitoring systems used specifically for smartphones. But most importantly, no monitoring system allows you to perform actions on the monitored hosts.
+I realized this project at the end of my university career. In addition, this project was carried out as there are no monitoring systems used specifically for smartphones. But most importantly, no monitoring system allows you to perform actions on the monitored hosts. I hope that this project will be useful to someone.
 
 ##Project structure
 The project can be split in 3 entity:
@@ -31,7 +31,8 @@ The name of the script that retrieve this information is : getInfo.sh
   * RAM used (e. g. 54% )
   * CPU used (e. g. 80% )
   * Use partitions and mount point (e. g. 54% / - 13% /boot )
-  * Number of users connected (e. g. 3)<br>
+  * Number of users connected (e. g. 3)
+  
 The name of the script that retrieve this information is : getHealthStatus.sh
 To run this script periodically uses the `cron` daemon. To schedule the execution modify the crontab file by running the command `crontab -e`.
 Add the following cronjob (customize the path of the script):
